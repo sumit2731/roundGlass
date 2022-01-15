@@ -1,10 +1,11 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import {ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { StyleObject } from './card-interface.model';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  styleUrls: ['./card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardComponent implements OnInit {
   @Input() title: string = 'Demo Title';
@@ -16,7 +17,7 @@ export class CardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.coverImageUrl = 'url(' + this.coverImageUrl + ')';
+    this.coverImageUrl = `url(${this.coverImageUrl})`;
     console.log(this.coverImageUrl);
   }
   
