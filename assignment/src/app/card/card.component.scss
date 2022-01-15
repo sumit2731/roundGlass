@@ -1,0 +1,22 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid red;
+    transition: width 10s, height 10s;
+    &__image-container {
+        flex-grow: 1;
+        background-size:100% 100%;
+    }
+
+    &__title {
+        background-color: green;
+        margin: 0px;
+    }
+    &__sub-title {
+        background-color:yellow;
+        margin: 0px;
+    }
+    &:hover {
+        transform: scale(1.1,1.1 );
+    }
+}

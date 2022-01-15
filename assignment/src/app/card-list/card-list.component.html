@@ -1,0 +1,17 @@
+<div class="cards-container" *ngIf="(cardList$ |async | filter: 'index') as cards; else loading">
+    
+    <app-card *ngFor="let card of cards;let i = index"
+        [title]="card.title"
+        [subtitle]="card.subtitle"
+        [cardData] = "{id: card.id}"
+        [coverImageUrl]="cardCoverImageUrl"
+        [styleObject]="styleObject"
+        (cardClicked)="showCardDetails($event,i)"
+    >
+    </app-card>
+
+</div>
+
+<ng-template #loading>
+    Loading Cards info...
+</ng-template>
